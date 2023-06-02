@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import Question from './components/Question'
+import { nanoid } from 'nanoid'
 
 function App() {
   const [questions, setQuestions] = useState([])
@@ -24,10 +25,15 @@ function App() {
   }
 
   // console.log(questions);
-  const allQuestions = questions.map((question, index) => {
-    return (<Question key={index} question={question} />)
+  const allQuestions = questions.map((question) => {
+    return (<Question
+      key={nanoid()}
+      question={question.question}
+      correct_answer={question.correct_answer}
+      incorrect_answers={question.incorrect_answers}
+    />)
   });
-  // console.log(allQuestions);
+  console.log(allQuestions);
 
 
 
