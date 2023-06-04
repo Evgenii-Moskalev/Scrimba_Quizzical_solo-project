@@ -26,11 +26,18 @@ function App() {
 
   // console.log(questions);
   const allQuestions = questions.map((question) => {
+
+    const allAnswers = [...question.incorrect_answers];
+    const randomNum = Math.floor(Math.random() * (allAnswers.length + 1));
+    allAnswers.splice(randomNum, 0, question.correct_answer);
+
+
     return (<Question
       key={nanoid()}
       question={question.question}
-      correct_answer={question.correct_answer}
-      incorrect_answers={question.incorrect_answers}
+      allAnswers={allAnswers}
+      // correct_answer={question.correct_answer}
+      // incorrect_answers={question.incorrect_answers}
     />)
   });
   console.log(allQuestions);
