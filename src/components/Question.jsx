@@ -1,4 +1,6 @@
 import React from "react";
+import "./Question.css"
+
 export default function Question({ question, allAnswers }) {
     // console.log(question, correct_answer, incorrect_answers);
 
@@ -35,7 +37,7 @@ export default function Question({ question, allAnswers }) {
     return (
         <form>
             <fieldset>
-                <h2>{question}</h2>
+                <h3>{question}</h3>
 
                 <label style={{ backgroundColor: formData.answer === "one" ? "#D6DBF5" : "" }}>
                     <input
@@ -44,7 +46,7 @@ export default function Question({ question, allAnswers }) {
                         value="one"
                         checked={formData.answer === "one"}
                         onChange={handleChange}
-                        style={{display: "none"}}
+                        style={{ display: "none" }}
                     />
                     {allAnswers[0]}
                 </label>
@@ -80,11 +82,10 @@ export default function Question({ question, allAnswers }) {
                         value="four"
                         checked={formData.answer === "four"}
                         onChange={handleChange}
-                        style={{display: "none"}}
+                        style={{ display: "none" }}
                     />
                     {allAnswers[3]}
                 </label>
-
             </fieldset>
         </form>
     )

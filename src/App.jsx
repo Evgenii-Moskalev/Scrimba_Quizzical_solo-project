@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 import Question from './components/Question'
@@ -50,6 +48,7 @@ function App() {
     <main> {questions.length !== 0 ?
       <div>
         {allQuestions}
+        <button className="check">Check answers</button>
       </div>
       :
       <div>
