@@ -1,25 +1,16 @@
 import React from "react";
 import "./Question.css"
+import { decode } from 'html-entities';
 
 export default function Question({ question, allAnswers }) {
-    // console.log(question, correct_answer, incorrect_answers);
-
-    // const allAnswers = [...incorrect_answers];
-    // const randomNum = Math.floor(Math.random() * (allAnswers.length + 1));
-    // allAnswers.splice(randomNum, 0, correct_answer);
+    const decodedQuestion = decode(question);
+    const decodedAllAnswers = allAnswers.map((elem) => decode(elem));
 
     const [formData, setFormData] = React.useState(
         {
             answer: ""
         }
     )
-
-
-    // const styles = {
-    //     display: "none",
-    //     paddingRight: "5px"
-    // }
-    // console.log(formData.name)
 
     function handleChange(event) {
         console.log(event.target);
@@ -33,11 +24,10 @@ export default function Question({ question, allAnswers }) {
         })
     }
 
-
     return (
         <form>
             <fieldset>
-                <h3>{question}</h3>
+                <h3>{decodedQuestion}</h3>
 
                 <label style={{ backgroundColor: formData.answer === "one" ? "#D6DBF5" : "" }}>
                     <input
@@ -48,7 +38,7 @@ export default function Question({ question, allAnswers }) {
                         onChange={handleChange}
                         style={{ display: "none" }}
                     />
-                    {allAnswers[0]}
+                    {decodedAllAnswers[0]}
                 </label>
 
                 <label style={{ backgroundColor: formData.answer === "two" ? "#D6DBF5" : "" }}>
@@ -60,7 +50,7 @@ export default function Question({ question, allAnswers }) {
                         onChange={handleChange}
                         style={{ display: "none" }}
                     />
-                    {allAnswers[1]}
+                    {decodedAllAnswers[1]}
                 </label>
 
                 <label style={{ backgroundColor: formData.answer === "three" ? "#D6DBF5" : "" }}>
@@ -72,7 +62,7 @@ export default function Question({ question, allAnswers }) {
                         onChange={handleChange}
                         style={{ display: "none" }}
                     />
-                    {allAnswers[2]}
+                    {decodedAllAnswers[2]}
                 </label>
 
                 <label style={{ backgroundColor: formData.answer === "four" ? "#D6DBF5" : "" }}>
@@ -84,7 +74,7 @@ export default function Question({ question, allAnswers }) {
                         onChange={handleChange}
                         style={{ display: "none" }}
                     />
-                    {allAnswers[3]}
+                    {decodedAllAnswers[3]}
                 </label>
             </fieldset>
         </form>
