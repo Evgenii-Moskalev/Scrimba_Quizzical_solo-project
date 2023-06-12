@@ -13,3 +13,10 @@ fieldset {
     padding-bottom: 15px;
     max-width: 650px;
 }
+.green {
+    background-color: #94D7A2 !important;
+}
+
+.red {
+    background-color: #F8BCBC;
+}
