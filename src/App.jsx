@@ -16,7 +16,7 @@ function App() {
 
 
   async function getData() {
-    const response = await fetch('https://opentdb.com/api.php?amount=5&category=22&difficulty=easy&type=multiple');
+    const response = await fetch('https://opentdb.com/api.php?amount=5&difficulty=medium&type=multiple');
 
     if (!response.ok) {
       const message = `An error has occured: ${response.status}`;
